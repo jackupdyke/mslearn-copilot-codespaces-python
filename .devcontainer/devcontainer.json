@@ -5,7 +5,7 @@
 	"forwardPorts": [8000],
 	"build": {
 		"dockerfile": "Dockerfile",
-		"context": "..",
+		"context": "C:/Users/jack.updyke/360learning/mslearn-copilot-codespaces-python",
 		"args": {
 			// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
 			// Append -bullseye or -buster to pin to an OS version.

@@ -15,10 +15,22 @@ app = FastAPI()
 app.mount("/ui", StaticFiles(directory=static_path), name="ui")
 
 
-class Text(BaseModel):
+class Body(BaseModel):
     length: Union[int, None] = 20
 
+# Create a FastAPI endpoint that accepts a POST request with a JSON body containing a single field called "Text" and returns a checksum of the text
+class Text(BaseModel):
+    text: str
+@app.post('/checksum')  
+def checksum(body: Text):
+    """
+    Generate a checksum of the input text. Example POST request body:
 
+    {
+        "text": "hello world"
+    }
+    """
+    return {'checksum': hash(body.text)}
 @app.get('/')
 def root():
     html_path = join(static_path, "index.html")
@@ -26,7 +38,7 @@ def root():
 
 
 @app.post('/generate')
-def generate(body: Text):
+def generate(body: Body):
     """
     Generate a pseudo-random token ID of twenty characters by default. Example POST request body:
 
