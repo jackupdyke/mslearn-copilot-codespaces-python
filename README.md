@@ -18,17 +18,17 @@ The API already has a single endpoint to generate a token. Let's update the API 
 Go to the `main.py` file, and add a comment so that GitHub Copilot can generate a `Pydantic` model for you. The generated model should look like this:
 
 ```python
-class Text(BaseModel): 
+class Text(BaseModel):
 
 text: str
 ```
 
 ### 🔎 Step 2: Generate a new endpoint
 
-Next, generate a new endpoint with GitHub Copilot by adding the comment: 
+Next, generate a new endpoint with GitHub Copilot by adding the comment:
 
 ```python
-# Create a FastAPI endpoint that accepts a POST request with a JSON body containing a single field called "text" and returns a checksum of the text 
+# Create a FastAPI endpoint that accepts a POST request with a JSON body containing a single field called "text" and returns a checksum of the text
 ```
 
 ### 🐍 Step 3: Add necessary imports
@@ -36,15 +36,13 @@ Next, generate a new endpoint with GitHub Copilot by adding the comment:
 The generated code causes the application to crash. The crash happens because the `base64` and `os` modules aren't imported. Add the following lines to the top of the file:
 
 ```python
-import base64 
+import base64
 import os
 ```
 
 Finally, verify the new endpoint is working by trying it out by going to the `/docs` endpoint and confirming that the endpoint shows up.
 
-
 🚀 Congratulations, through the exercise, you haven't only used copilot to generate code but also done it in an interactive and fun way! You can use GitHub Copilot to not only generate code, but write documentation, test your applications and more.
-
 
 ## Legal Notices
 
